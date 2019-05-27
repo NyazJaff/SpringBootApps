@@ -1,13 +1,13 @@
-package my.hello.world.demo;
+package hello.world.b;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HelloworldAApplication {
+public class BApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(HelloworldAApplication.class, args);
+        SpringApplication.run(BApplication.class, args);
     }
 
 }

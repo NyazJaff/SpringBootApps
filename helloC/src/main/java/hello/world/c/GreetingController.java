@@ -1,4 +1,4 @@
-package my.hello.world.demo;
+package hello.world.c;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class GreetingController {
 
     @GetMapping("/greeting")
-    public String greeting(@RequestParam(name = "name", required = false, defaultValue = "MYNAM IS MUA") String name, Model model) {
+    public String greeting(@RequestParam(name="name", required=false, defaultValue="S") String name, Model model) {
         model.addAttribute("name", name);
         return "greeting";
     }
