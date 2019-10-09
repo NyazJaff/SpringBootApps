@@ -1,10 +1,70 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-</head>
+<div th:replace="fragments/header :: header_css"></div>
+<div th:replace="fragments/header :: header">...</div>
+
+
+<script
+        src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js">
+</script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js">
+</script>
+<script type="text/babel">
+    var app = new Vue({
+        el: '#vue',
+        data: {
+            players: [
+                {
+                    id: "1",
+                    name: "Lionel Messi",
+                    description: "Argentina's superstar"
+                },
+                {
+                    id: "2",
+                    name: "Christiano Ronaldo",
+                    description: "World #1-ranked player from Portugal"
+                }
+            ]
+        }
+    });
+
+    Vue.component('player-card', {
+        props: ['player'],
+        template: `<div class="card">
+        <div class="card-body">
+            <h6 class="card-title">
+                {{ player.name }}
+            </h6>
+            <p class="card-text">
+                <div>
+                    {{ player.description }}
+                </div>
+            </p>
+        </div>
+        </div>`
+    });
+</script>
 <body>
-<p th:text="'MY EST, ' + ${name} + '!'"/>
+<h6>test</h6>
+<div id="vue">
+    <ul>
+        <li style="list-style-type:none" v-for="player in players">
+            <div>
+                {{player.name}}
+                {{player.description}}
+            </div>
+        </li>
+    </ul>
+
+
+    <div class="lead">
+        <strong>Name of Event:</strong>
+        <span th:text="${name}"></span>
+    </div>
+    <p th:text="'MY, ' + ${name} + '!'"/>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
