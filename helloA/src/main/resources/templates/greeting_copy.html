@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/header :: header_css"></div>
+<div th:replace="fragments/header :: header">...</div>
+
+
+<body>
+<h6>test</h6>
+<div id="vue">
+    <ul>
+        <li style="list-style-type:none" v-for="player in players">
+            <div>
+                {{player.name}}
+                {{player.description}}
+            </div>
+        </li>
+    </ul>
+
+
+    <div class="lead">
+        <strong>Name of Event:</strong>
+        <span th:text="${name}"></span>
+    </div>
+    <p th:text="'MY, ' + ${name} + '!'"/>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

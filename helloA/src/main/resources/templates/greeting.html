@@ -1,50 +1,9 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <div th:replace="fragments/header :: header_css"></div>
-<div th:replace="fragments/header :: header">...</div>
+<!--<div th:replace="fragments/header :: header">...</div>-->
 
 
-<script
-        src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js">
-</script>
-<script
-        src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js">
-</script>
-<script type="text/babel">
-    var app = new Vue({
-        el: '#vue',
-        data: {
-            players: [
-                {
-                    id: "1",
-                    name: "Lionel Messi",
-                    description: "Argentina's superstar"
-                },
-                {
-                    id: "2",
-                    name: "Christiano Ronaldo",
-                    description: "World #1-ranked player from Portugal"
-                }
-            ]
-        }
-    });
-
-    Vue.component('player-card', {
-        props: ['player'],
-        template: `<div class="card">
-        <div class="card-body">
-            <h6 class="card-title">
-                {{ player.name }}
-            </h6>
-            <p class="card-text">
-                <div>
-                    {{ player.description }}
-                </div>
-            </p>
-        </div>
-        </div>`
-    });
-</script>
 <body>
 <h6>test</h6>
 <div id="vue">
@@ -65,6 +24,5 @@
     <p th:text="'MY, ' + ${name} + '!'"/>
 </div>
 
-<div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
