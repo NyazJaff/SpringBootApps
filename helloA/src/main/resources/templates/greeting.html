@@ -1,28 +1,95 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<div th:replace="fragments/header :: header_css"></div>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+
 <!--<div th:replace="fragments/header :: header">...</div>-->
 
-
 <body>
-<h6>test</h6>
+<h6>ggggg</h6>
+
 <div id="vue">
-    <ul>
-        <li style="list-style-type:none" v-for="player in players">
-            <div>
-                {{player.name}}
-                {{player.description}}
-            </div>
-        </li>
-    </ul>
+    <v-app id="inspire">
+        <template>
+            <v-container style="max-width: 60%">
+                <div>
+                    <v-row
+                            justify="space-around">
+                        <v-switch
+                                v-model="sticky"
+                                label="Sticky"
+                        ></v-switch>
+                        <v-switch
+                                v-model="singleLine"
+                                label="Single-line"
+                        ></v-switch>
+                        <v-select
+                                v-model="icon"
+                                :items="icons"
+                                label="Icon"
+                                style="max-width: 250px;"
+                                clearable
+                        ></v-select>
+                        <v-select
+                                v-model="color"
+                                :items="colors"
+                                label="Color"
+                                style="max-width: 250px;"
+                                clearable
+                        ></v-select>
+                        <v-select
+                                v-model="iconColor"
+                                :items="colors"
+                                label="Icon color"
+                                style="max-width: 250px;"
+                                clearable
+                        ></v-select>
+                        <v-slider
+                                v-model="elevation"
+                                label="Elevation"
+                                min="0"
+                                max="24"
+                                style="width: 100%;"
+                                clearable
+                        ></v-slider>
+                    </v-row>
+
+                    <v-sheet
+                            class="overflow-y-auto"
+                            max-height="600"
+                    >
+                        <v-container style="height: 1500px;">
+                            <v-banner
+                                    :sticky="sticky"
+                                    :single-line="singleLine"
+                                    :icon="icon"
+                                    :color="color"
+                                    :icon-color="iconColor"
+                                    :elevation="elevation"
+                            >
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis magnam necessitatibus possimus sapiente laboriosam ducimus atque maxime quibusdam, facilis velit assumenda, quod nisi aliquid corrupti maiores doloribus soluta optio blanditiis.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis magnam necessitatibus possimus sapiente laboriosam ducimus atque maxime quibusdam, facilis velit assumenda, quod nisi aliquid corrupti maiores doloribus soluta optio blanditiis.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis magnam necessitatibus possimus sapiente laboriosam ducimus atque maxime quibusdam, facilis velit assumenda, quod nisi aliquid corrupti maiores doloribus soluta optio blanditiis.
+
+                                <template v-slot:actions>
+                                    <v-btn
+                                            text
+                                            color="deep-purple accent-4"
+                                    >
+                                        Action
+                                    </v-btn>
+                                </template>
+                            </v-banner>
+                        </v-container>
+                    </v-sheet>
+                </div>
 
 
-    <div class="lead">
-        <strong>Name of Event:</strong>
-        <span th:text="${name}"></span>
-    </div>
-    <p th:text="'MY, ' + ${name} + '!'"/>
+
+            </v-container>
+        </template>
+    </v-app>
 </div>
 
 </body>
+<div th:replace="fragments/header :: header_css"></div>
 </html>
